@@ -1,0 +1,14 @@
+
+name: Title of TestSuite
+testcases:
+
+- name: GET to Smocker hello world example
+  steps:
+  - type: http
+    method: GET
+    url: http://localhost:8080/hello/world
+    timeout: 5
+    assertions:
+    - result.statuscode ShouldEqual 200
+    - result.body ShouldContain "Hello, world!"
+
