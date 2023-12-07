@@ -13,6 +13,6 @@ else
 		mkdir "outputs"
 	fi
 	echo "Will run: $testcase"
-	venom run $testcase --format=json --output-dir="outputs/$output_dir.$timestamp"
+	venom run $testcase --format=json --output-dir="outputs/$output_dir.$timestamp" --html-report
 fi
-
+echo "Test Execution complete. Output is saved in \"outputs/$output_dir.$timestamp.\""

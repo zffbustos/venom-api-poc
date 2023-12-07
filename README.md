@@ -11,6 +11,9 @@ To verify Venom has been installed successfully, try this command:
 
 `% venom v`
 
+## Test configuration
+
+
 ## Test execution example
 
 To run one case using, run the script from the root directory:
@@ -24,3 +27,10 @@ For example:
 The console will output several results, and you can find them in the directory `outputs`. In this example, the test results will be in:
 
 `outputs/tests/login/get-request-zfdash-login.venom.yml.061223_174002`
+
+## References
+
+- Venom OVH repository: https://github.com/ovh/venom
+- Venom Riskive repository: https://github.com/riskive/venom
+- Venom Tests: https://github.com/riskive/go-dm/tree/master/e2e/venom/end-to-end
+- ZF API repository: https://github.com/riskive/API/
