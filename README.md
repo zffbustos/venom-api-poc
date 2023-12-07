@@ -13,6 +13,17 @@ To verify Venom has been installed successfully, try this command:
 
 ## Test configuration
 
+TBD (rephrase this)
+
+You run the tests, you need the credentials for the ZF Dashboard account you're currently using.
+
+- Go to Settings -> Data Connectors -> API Data Feeds tab -> API Tokens
+
+- Reset the Personal Access Token, then Copy it.
+
+- Paste this token in the "zfapi-personal-token" variable in the tests
+
+
 
 ## Test execution example
 
