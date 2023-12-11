@@ -8,6 +8,7 @@ testcases:
     method: GET
     url: http://localhost:8080/hello/world
     timeout: 5
+    info: this test will fail if there is no Smocker instance enabled and if it has no mock associated to the given url.
     assertions:
     - result.statuscode ShouldEqual 200
     - result.body ShouldContain "Hello, world!"

@@ -37,9 +37,17 @@ The console will output several results, and you can find them in the directory 
 
 `outputs/tests/login/get-request-zfdash-login.venom.yml.061223_174002`
 
+## Docker
+
+Venom has a good integration with Docker, that's why in this project we include a small `Hello World` example to prove the capabilities of Venom by using it to make calls to a `http` server within a Docker image.
+
+There is a directory called `images` which contains a Smocker image where you can create a hello world image. The image only contains the Smocker server, and the image creation is out of the scope of this project. You can find more information about Smocker in the References section.
+
 ## References
 
 - Venom OVH repository: <https://github.com/ovh/venom>
 - Venom Riskive repository: <https://github.com/riskive/venom>
 - Venom Tests: <https://github.com/riskive/go-dm/tree/master/e2e/venom/end-to-end>
 - ZF API repository: <https://github.com/riskive/API/>
+- Smocker: <https://smocker.dev/>
+- Hello World with Smocker: <https://smocker.dev/guide/getting-started.html>
