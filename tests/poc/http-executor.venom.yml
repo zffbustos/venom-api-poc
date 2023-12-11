@@ -5,7 +5,8 @@ testcases:
   steps:
   - type: http
     method: GET
-    url: https://eu.api.ovh.com/1.0/
+    url: "{{.http-executor-ovh-url}}"
+    info: get to {{ .http-executor-ovh-url }}
     assertions:
     - result.body ShouldContainSubstring /dedicated/server
     - result.body ShouldContainSubstring /ipLoadbalancing
@@ -19,7 +20,7 @@ testcases:
   steps:
   - type: http
     method: POST
-    url: https://eu.api.ovh.com/1.0/auth/logout
+    url: "{{ .http-executor-ovh-url }}auth/logout"
     multipart_form:
       file: '@./venom.gif'
     assertions:
@@ -32,14 +33,14 @@ testcases:
   steps:
     - type: http
       method: POST
-      url: https://httpbin.org/post
+      url: "{{ .http-executor-ovh-post-url }}"
       body: |
         {"key": "value"}
       headers:
         Content-Type: application/json
       assertions:
         - result.statuscode ShouldEqual 200
-        - result.bodyjson.url ShouldEqual https://httpbin.org/post
+        - result.bodyjson.url ShouldEqual "{{ .http-executor-ovh-post-url }}"
       vars:
         statuscode:
           from: result.statuscode
@@ -48,7 +49,7 @@ testcases:
   steps:
   - type: http
     method: POST
-    url: https://eu.api.ovh.com/1.0/newAccount/rules
+    url: "{{ .http-executor-ovh-url }}newAccount/rules"
     assertions:
       - result.statuscode ShouldEqual 200
       - result.bodyjson.__type__ ShouldEqual Array
@@ -67,7 +68,7 @@ testcases:
   steps:
   - type: http
     method: POST
-    url: https://eu.api.ovh.com/1.0
+    url: "{{.http-executor-ovh-url}}"
     skip_body: true
     skip_headers: true
     info: request is {{.result.request.method}} {{.result.request.url}} {{.result.request.body}}

@@ -1,0 +1,7 @@
+test-variables-test: "hello_world"
+get-request-helloworld-smoker-url: "http://localhost:8080/hello/world"
+http-executor-ovh-url: "https://eu.api.ovh.com/1.0/"
+http-executor-ovh-post-url: "https://httpbin.org/post"
+zfapi-personal-token: "b7bf64ffca3c2b04d8cc0fa9f2981871f921693e"
+zfapi-url: "https://api-qa.zerofox.com/"
+

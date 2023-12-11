@@ -2,7 +2,6 @@
 name: Testing using the ZF API
 
 vars:
-  zfapi-personal-token: b7bf64ffca3c2b04d8cc0fa9f2981871f921693e
   alert-id: 37069879
 
 testcases:
@@ -11,11 +10,11 @@ testcases:
   steps:
     - type: http
       method: GET
-      url: https://api-qa.zerofox.com/1.0/alerts/{{ .alert-id }}
+      url: "{{ .zfapi-url }}1.0/alerts/{{ .alert-id }}"
       headers:
         Authorization: "Token {{ .zfapi-personal-token }}"
         Content-Type: application/json; charset=UTF-8
-      info: "{{.result.bodyjson.alert.alert_type }}"
+      info: "Alert type: {{.result.bodyjson.alert.alert_type }}"
       assertions:
         - result.statuscode ShouldEqual 200        
         - result.body ShouldNotBeNil
@@ -26,7 +25,7 @@ testcases:
   steps:
   - type: http
     method: GET
-    url: https://api-qa.zerofox.com/1.0/alerts/
+    url: "{{ .zfapi-url }}1.0/alerts/"
     headers:
       Authorization: "Token {{ .zfapi-personal-token }}"
       Content-Type: application/json; charset=UTF-8

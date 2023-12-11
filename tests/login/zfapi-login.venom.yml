@@ -1,18 +1,14 @@
 
 name: Testing using the ZF API
 
-vars:
-  zfapi-personal-token: b7bf64ffca3c2b04d8cc0fa9f2981871f921693e
-
 testcases:
 
 - name: Validate ZF Dashboard is accessible
   steps:
   - type: http
     method: GET
-    url: https://api-qa.zerofox.com/
+    url: "{{ .zfapi-url }}"
     headers:
       Authorization: "Token {{ .zfapi-personal-token }}"
     assertions:
     - result.statuscode ShouldEqual 200
-  

@@ -47,6 +47,15 @@ If you want to run a test list, make sure your file has the `.list` extension an
 
 If the list of cases does not end with the `.list` extension, Venom will error out.
 
+## Variables
+
+According to the official documentation, there are multiple ways to use variables in the test files. For the purposes of this project, the flag `--var-from-file` will be used.
+
+There is a directory called `variables` which contains files related to the test environment where the tests will be run. These variables have a free notation, however they will follow these rules:
+
+- If the variable is used only in one test, it will have the name of that test followed by the variable name.
+- If the variable is used in multiple tests, it will have a representative name that will be used among all the test cases.
+
 ## Docker
 
 Venom has a good integration with Docker, that's why in this project we include a small `Hello World` example to prove the capabilities of Venom by using it to make calls to a `http` server within a Docker image.

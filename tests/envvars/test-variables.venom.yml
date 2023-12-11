@@ -1,0 +1,12 @@
+name: Testing environment variables
+
+testcases:
+  - name: just echo one variable
+    steps:
+      - type: exec
+        script: echo {{ .test-variables-test }}
+        info: "{{ .test-variables-test }}"
+        assertions:
+          - result.code ShouldEqual 0
+          - result.systemout ShouldEqual {{ .test-variables-test }} 
+

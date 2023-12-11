@@ -6,7 +6,7 @@ testcases:
   steps:
   - type: http
     method: GET
-    url: http://localhost:8080/hello/world
+    url: "{{ .get-request-helloworld-smoker-url }}"
     timeout: 5
     info: this test will fail if there is no Smocker instance enabled and if it has no mock associated to the given url.
     assertions:
