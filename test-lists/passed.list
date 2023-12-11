@@ -1,0 +1,2 @@
+tests/alerts/zfapi-alerts-get.venom.yml
+tests/login/get-request-zfapi-login.venom.yml

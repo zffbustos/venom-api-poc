@@ -1,0 +1,2 @@
+tests/poc/get-request-helloworld-smoker.venom.yml
+tests/poc/get-request.venom.yml

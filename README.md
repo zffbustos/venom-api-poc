@@ -37,6 +37,16 @@ The console will output several results, and you can find them in the directory 
 
 `outputs/tests/login/get-request-zfdash-login.venom.yml.061223_174002`
 
+## Test Lists
+
+To run multiple tests, there is a directory called `test-lists` which contains files with extension `.list`. These files are lists of `.yml` test cases. These files contain the lists of cases you need to run.
+
+If you want to run a test list, make sure your file has the `.list` extension and it contains the tests you need to run. Once you're ready, you can call the `run_test.sh` script just like any single test case.
+
+`% ./run_test {path_to_your_tests}.list`
+
+If the list of cases does not end with the `.list` extension, Venom will error out.
+
 ## Docker
 
 Venom has a good integration with Docker, that's why in this project we include a small `Hello World` example to prove the capabilities of Venom by using it to make calls to a `http` server within a Docker image.
