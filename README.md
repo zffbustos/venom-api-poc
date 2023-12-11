@@ -24,7 +24,6 @@ You run the tests, you need the credentials for the ZF Dashboard account you're 
 - Paste this token in the "zfapi-personal-token" variable in the tests
 
 
-
 ## Test execution example
 
 To run one case using, run the script from the root directory:
