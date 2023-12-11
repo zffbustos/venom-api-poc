@@ -1,0 +1,73 @@
+{
+    "alert": {
+        "alert_type": "search query",
+        "logs": [
+            {
+                "id": 54191246,
+                "timestamp": "2023-12-08T03:21:46+00:00",
+                "actor": "",
+                "subject": "",
+                "action": "open"
+            }
+        ],
+        "offending_content_url": "https://apps.apple.com/cn/app/motorful-external-testing/id1520689795",
+        "asset_term": null,
+        "assignee": "",
+        "entity": {
+            "id": 74699676,
+            "name": "testing",
+            "image": "",
+            "labels": [],
+            "entity_group": {
+                "id": 616,
+                "name": "Default"
+            }
+        },
+        "entity_term": null,
+        "content_created_at": "2017-01-01T00:00:10+00:00",
+        "id": 37069879,
+        "protected_account": null,
+        "severity": 4,
+        "perpetrator": {
+            "name": "App Store 上的“Motorful External Testing”",
+            "display_name": "App Store 上的“Motorful External Testing”",
+            "id": 19291043,
+            "url": "https://apps.apple.com/cn/app/motorful-external-testing/id1520689795",
+            "content": "‎MOTORFUL revolutionizes B2B customer feedback by pioneering an innovative approach that captures real-time brand experiences, orchestrating seamless data alignment between brands and distributors. Our cutting-edge platform swiftly transforms this data into unified analytics, illuminating pinpoint ar…",
+            "type": "page",
+            "timestamp": "2017-01-01T00:00:10+00:00",
+            "network": "itunes_china"
+        },
+        "rule_group_id": 29,
+        "asset": {
+            "id": 74699676,
+            "name": "testing",
+            "image": "",
+            "labels": [],
+            "entity_group": {
+                "id": 616,
+                "name": "Default"
+            }
+        },
+        "entered_by": "",
+        "metadata": "{\"ai_confidence_display\":[{\"color\":\"#0072ce\",\"detections\":[{\"confidence\":0.8637522459,\"label\":\"English\"}],\"icon\":\"chat\",\"name\":\"Language Detection\"}],\"content_raw_data\":{\"data\":\"‎MOTORFUL revolutionizes B2B customer feedback by pioneering an innovative approach that captures real-time brand experiences, orchestrating seamless data alignment between brands and distributors. Our cutting-edge platform swiftly transforms this data into unified analytics, illuminating pinpoint ar…\"},\"content_type\":\"page\",\"content_url\":\"https://apps.apple.com/cn/app/motorful-external-testing/id1520689795\",\"enrichment\":{\"analysis-message-mapper\":{\"enterpriseID\":73585080,\"entityID\":74699676,\"images\":[{\"field\":\"content.images\",\"item\":\"https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/96/cd/ac/96cdac45-251a-7f3a-002a-e0661eb2d6a4/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x600wa.png\"}],\"network\":\"itunes_china\",\"relation\":\"self\",\"serviceOrigin\":\"sdk-appstores\",\"texts\":[{\"field\":\"content.text\",\"item\":\"‎MOTORFUL revolutionizes B2B customer feedback by pioneering an innovative approach that captures real-time brand experiences, orchestrating seamless data alignment between brands and distributors. Our cutting-edge platform swiftly transforms this data into unified analytics, illuminating pinpoint ar…\"}],\"type\":\"page\",\"urls\":null},\"language-detection\":{\"confidence\":0.8637522459,\"detected_language\":\"en\",\"detection_method\":\"languageProbability\",\"iso_639_3\":\"eng\",\"language_probability\":{\"de\":0.0065795844,\"en\":0.8637522459,\"ru\":0.0058213389}},\"nlp-utils\":{\"lemmatized_and_stop_words_filter\":\"‎MOTORFUL revolutionize B2B customer feedback pioneer innovative approach capture real - time brand experience , orchestrate seamless datum alignment brand distributor . cut - edge platform swiftly transform datum unify analytics , illuminate pinpoint ar …\",\"nlp_model\":\"en\"},\"ocr-analysis\":{\"data\":[{\"details\":{\"bounding_boxes\":[],\"confidences\":[],\"forced_language_library\":\"eng\",\"height\":600,\"width\":1200,\"words\":[]},\"image\":\"https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/96/cd/ac/96cdac45-251a-7f3a-002a-e0661eb2d6a4/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x600wa.png\"}]},\"preliminary-language-detection\":{\"confidence\":0.8637522459,\"detected_language\":\"en\",\"detection_method\":\"languageProbability\",\"iso_639_3\":\"eng\",\"language_probability\":{\"de\":0.0065795844,\"en\":0.8637522459,\"ru\":0.0058213389}}},\"image_overlays\":[{\"image_highlights\":[],\"image_url\":\"https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/96/cd/ac/96cdac45-251a-7f3a-002a-e0661eb2d6a4/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x600wa.png\"}],\"occurrences\":[{\"origin\":null,\"term\":\"https://apps.apple.com/cn/app/motorful-external-testing/id1520689795\"},{\"origin\":\"App Title Impersonation\",\"term\":\"App Store 上的“Motorful External Testing”\"},{\"origin\":\"App Url\",\"term\":\"testing\"}],\"offending_content\":[{\"origin\":null,\"term\":\"https://apps.apple.com/cn/app/motorful-external-testing/id1520689795\",\"text\":\"‎MOTORFUL revolutionizes B2B customer feedback by pioneering an innovative approach that captures real-time brand experiences, orchestrating seamless data alignment between brands and distributors. Our cutting-edge platform swiftly transforms this data into unified analytics, illuminating pinpoint ar…\"}]}",
+        "status": "Open",
+        "timestamp": "2023-12-08T03:21:46+00:00",
+        "rule_name": "Risky Mobile App - iOS",
+        "last_modified": "2023-12-08T03:21:46Z",
+        "protected_locations": null,
+        "darkweb_term": null,
+        "business_network": null,
+        "reviewed": false,
+        "escalated": false,
+        "network": "itunes_china",
+        "protected_social_object": null,
+        "notes": "",
+        "reviews": [],
+        "content_actions": [],
+        "rule_id": 75249,
+        "entity_account": null,
+        "entity_email_receiver_id": null,
+        "tags": []
+    }
+}

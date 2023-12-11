@@ -23,7 +23,6 @@ You run the tests, you need the credentials for the ZF Dashboard account you're 
 
 - Paste this token in the "zfapi-personal-token" variable in the tests
 
-
 ## Test execution example
 
 To run one case using, run the script from the root directory:
@@ -40,7 +39,7 @@ The console will output several results, and you can find them in the directory 
 
 ## References
 
-- Venom OVH repository: https://github.com/ovh/venom
-- Venom Riskive repository: https://github.com/riskive/venom
-- Venom Tests: https://github.com/riskive/go-dm/tree/master/e2e/venom/end-to-end
-- ZF API repository: https://github.com/riskive/API/
+- Venom OVH repository: <https://github.com/ovh/venom>
+- Venom Riskive repository: <https://github.com/riskive/venom>
+- Venom Tests: <https://github.com/riskive/go-dm/tree/master/e2e/venom/end-to-end>
+- ZF API repository: <https://github.com/riskive/API/>
