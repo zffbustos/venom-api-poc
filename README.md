@@ -37,6 +37,11 @@ The console will output several results, and you can find them in the directory 
 
 `outputs/tests/login/get-request-zfdash-login.venom.yml.061223_174002`
 
+## Test Suites
+
+Venom categorizes the test cases as `Testsuites`, which can contain one or many test cases. The test cases are written in `YAML` and its extension must be `.yml`.
+In this project, it is important the Test Suite names must end with `venom.yml`, as it is required to the correct execution of the `run_test.sh` script. If your test suite does not have this extension, it will be classified as an invalid test.
+
 ## Test Lists
 
 To run multiple tests, there is a directory called `test-lists` which contains files with extension `.list`. These files are lists of `.yml` test cases. These files contain the lists of cases you need to run.
