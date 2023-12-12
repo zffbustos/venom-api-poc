@@ -45,13 +45,18 @@ else
 	then
 		mkdir "outputs"
 	fi
+
 	output_name=$( echo "$testcase" | cut -d '.' -f1)
+
 	if [ $( echo "$testcase" | cut -d '.' -f2) == "list" ]
 	then
 		run_test_list "$testcase" "$output_name"
 	elif [ $(echo "$testcase" | cut -d '.' -f3) == "yml" ]
 	then
 		run_test "$testcase" "$output_name"
+	elif [ $testcase == "clean" ]
+	then
+		rm -rf outputs/*
 	else
 		echo "Invalid test provided: $testcase. Make sure your test is a valid YAML file or a test list"
 		exit 1
