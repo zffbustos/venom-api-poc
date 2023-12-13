@@ -4,6 +4,11 @@ This project is a Proof of concept regarding the Venom testing for the QA team. 
 
 ## Venom Installation
 
+### Requisites
+
+- Go
+- Docker (optional but recommeneded)
+
 To install Venom, you have to run the script `ìnstall_venom.sh`. This scripts will clone the venom repository from `riskive/venom` into your local directory. Then will compile its source code and install it into your machine.
 Please notice this process requires you to provide your sudo credentials when installing venom.
 
@@ -35,7 +40,7 @@ For example:
 
 The console will output several results, and you can find them in the directory `outputs`. In this example, the test results will be in:
 
-`outputs/tests/login/get-request-zfdash-login.venom.yml.061223_174002`
+`outputs/tests/login/get-request-zfdash-login/061223_174002`
 
 ## Test Suites
 

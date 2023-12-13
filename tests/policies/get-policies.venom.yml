@@ -1,0 +1,47 @@
+name: Policies tests
+vars:
+    curr_num_policies: 287
+    test_policy_id: 62395
+    test_policy_name: Recommended
+    test_policy_is_default: false
+    test_policy_is_editable: true
+    test_policy_is_recommended: true
+    test_policy_is_active: true
+
+testcases:
+  - name: Validate first policy is correct
+    
+    steps:
+    
+    # Generate the necessary tokens
+
+      - type: http
+        url: '{{.zfapi-url}}auth/token/'
+        method: POST
+        headers:
+          Content-Type: application/json
+        bodyFile: "{{.env-file-path}}"
+        vars:
+          access-token:
+            from: result.bodyjson.access
+        assertions:
+          - result.statuscode MustEqual 200
+
+      # Obtain the list of policies
+      - type: http
+        url: '{{.zfapi-url}}/1.0/policies/'
+        method: GET
+        headers:
+          Authorization: Bearer {{.access-token}}
+          Content-Type: application/json; charset=UTF-8
+        info: "{{.result.bodyjson.policies.policies0}}"
+        assertions:
+          - result.statuscode MustEqual 200
+          - result.bodyjson.policies.__len__ ShouldEqual {{.curr_num_policies}}
+          - result.bodyjson ShouldContainKey policies
+          - result.bodyjson.policies.policies0.id ShouldEqual {{.test_policy_id}}
+          - result.bodyjson.policies.policies0.name ShouldEqual {{.test_policy_name}}
+          - result.bodyjson.policies.policies0.is_default ShouldEqual {{.test_policy_is_default}}
+          - result.bodyjson.policies.policies0.is_editable ShouldEqual {{.test_policy_is_editable}}
+          - result.bodyjson.policies.policies0.is_recommended ShouldEqual {{.test_policy_is_recommended}}
+          - result.bodyjson.policies.policies0.is_active ShouldEqual {{.test_policy_is_active}}

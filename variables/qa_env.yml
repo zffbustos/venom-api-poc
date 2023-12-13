@@ -4,4 +4,7 @@ http-executor-ovh-url: "https://eu.api.ovh.com/1.0/"
 http-executor-ovh-post-url: "https://httpbin.org/post"
 zfapi-personal-token: "b7bf64ffca3c2b04d8cc0fa9f2981871f921693e"
 zfapi-url: "https://api-qa.zerofox.com/"
-
+qatester-staff-username: "QATESTER_STAFF"
+qatester-staff-password: "Password12!@#"
+env-file-path: "/Users/fbustos/Projects/venom-projects/venom-api-poc/.env"
+mock-zfapi-url: "localhost:8080/auth/token/"

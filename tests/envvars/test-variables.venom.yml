@@ -9,4 +9,3 @@ testcases:
         assertions:
           - result.code ShouldEqual 0
           - result.systemout ShouldEqual {{ .test-variables-test }} 
-

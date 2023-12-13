@@ -1,0 +1,20 @@
+name: MyTestSuite
+testcases:
+- name: testA
+  steps:
+  - type: exec
+    script: echo 'foo with a bar here'
+    vars:
+      myvariable:
+        from: result.systemout
+        regex: foo with a ([a-z]+) here
+        default: "somevalue"
+
+- name: testB
+  steps:
+  - type: exec
+    script: echo {{.testA.myvariable}}
+    info: "{{.testA.myvariable}}"
+    assertions:
+    - result.code ShouldEqual 0
+    - result.systemout ShouldContainSubstring bar

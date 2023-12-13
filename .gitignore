@@ -1,3 +1,4 @@
 outputs/
 venom/
 .env
+.vscode/
