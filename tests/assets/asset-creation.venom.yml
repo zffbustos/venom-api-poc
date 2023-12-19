@@ -2,8 +2,6 @@ name: Creating Assets using ZF API
 
 vars:
   test_policy_id: 62395
-
-
   asset_policy_id: '{{.test_policy_id}}'
   asset_type_id: 5
   asset_status: "disabled"
@@ -34,14 +32,11 @@ testcases:
         headers:
           Content-Type: application/json
         bodyFile: "{{.env-file-path}}"
-        #info: "{{.result.bodyjson.access}}"
         vars:
           access-token:
             from: result.bodyjson.access
         assertions:
           - result.statuscode MustEqual 200
-      
-
 
       # Create the asset on the first policy on the list above
 
@@ -51,8 +46,6 @@ testcases:
         headers:
           Authorization: Bearer {{.access-token}}
           Content-Type: application/json; charset=UTF-8
-
-
         body: >-
           {
             "name": "{{.asset_name}}",
@@ -61,8 +54,13 @@ testcases:
             "status": "{{.asset_status}}",
             "protection_status": "{{.asset_protection_status}}"
           }
+        vars:
+          asset_id: 
+            from:
+              result.bodyjson.id 
         assertions:
           - result.statuscode ShouldEqual 201
+          - result.bodyjson ShouldContainKey id
 
 
 

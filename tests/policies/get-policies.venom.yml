@@ -27,6 +27,18 @@ testcases:
         assertions:
           - result.statuscode MustEqual 200
 
+    # Generate a random id to extract from the policies list
+
+      - type: exec
+        script: |
+          echo "number of policies is {{.curr_num_policies}}"
+          echo "$((1 + RANDOM % {{.curr_num_policies}}))"
+        vars:
+          selected_policy_id:
+            from:
+              result.systemout 
+      
+
       # Obtain the list of policies
       - type: http
         url: '{{.zfapi-url}}/1.0/policies/'
@@ -35,6 +47,11 @@ testcases:
           Authorization: Bearer {{.access-token}}
           Content-Type: application/json; charset=UTF-8
         info: "{{.result.bodyjson.policies.policies0}}"
+        vars:
+          policies_list:
+            from: result.bodyjson.policies
+          curr_num_policies:
+            from: result.bodyjson.policies.__len__
         assertions:
           - result.statuscode MustEqual 200
           - result.bodyjson.policies.__len__ ShouldEqual {{.curr_num_policies}}
@@ -45,3 +62,9 @@ testcases:
           - result.bodyjson.policies.policies0.is_editable ShouldEqual {{.test_policy_is_editable}}
           - result.bodyjson.policies.policies0.is_recommended ShouldEqual {{.test_policy_is_recommended}}
           - result.bodyjson.policies.policies0.is_active ShouldEqual {{.test_policy_is_active}}
+    
+
+          
+
+
+        
