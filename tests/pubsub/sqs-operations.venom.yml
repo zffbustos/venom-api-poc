@@ -1,0 +1,62 @@
+name: SQS operations
+
+vars:
+  localstack_endpoint_ur: http://sqs.us-west-2.localhost.localstack.cloud:4566
+  sqs_queue_name: 'test_queue'
+  sqs_message_to_queue: "Message1"
+  localstack_queue_url: "{{.localstack_endpoint_ur}}/000000000000/{{.sqs_queue_name}}"
+  sent_message_id_file_name: .sent_message_id.dat
+  received_message_id_file_name: .received_message_id.dat
+  
+testcases:
+  - name: Create an empty queue 
+    steps:
+      - type: exec
+        script: | 
+          aws --endpoint {{.localstack_endpoint_ur}} sqs create-queue --queue-name {{.sqs_queue_name}} | sed -n 's/.*"QueueUrl": "\(.*\)".*/\1/p'
+        vars:
+          localstack_created_queue_url:
+            from:
+              result.systemout
+  
+  - name: List queues
+    steps:
+      - type: exec
+        script: |
+          aws --endpoint {{.localstack_endpoint_ur}} sqs list-queues | sed -n 's/.*"\(http:\/\/[^"]*\)".*/\1/p'
+        vars:
+          localstack_list_queues:
+            from:
+              result.systemout
+        assertions:
+          - result.systemout ShouldContainSubstring "{{.sqs_queue_name}}"
+  
+  - name: Send message to queue
+    steps:
+      - type: exec
+        script: | 
+          aws --endpoint {{.localstack_endpoint_ur}} sqs send-message --queue-url {{.localstack_queue_url}} --message-body {{.sqs_message_to_queue}} | sed -n 's/.*"MessageId": "\(.*\)".*/\1/p'
+
+  - name: Receive message
+    steps:
+      - type: exec
+        script: | 
+          aws --endpoint {{.localstack_endpoint_ur}} sqs receive-message --queue-url {{.localstack_queue_url}} | sed -n 's/.*"Body": "\(.*\)".*/\1/p' | sed '/^$/d'
+        assertions:
+          - result.systemout ShouldEqual "{{.sqs_message_to_queue}}"
+  
+  - name: Purge Queue
+    steps:
+      - type: exec
+        script: |
+          aws --endpoint-url={{.localstack_endpoint_ur}} sqs purge-queue --queue-url {{.localstack_queue_url}}
+        assertions:
+          - result.systemout ShouldEqual ""
+
+  - name: Delete Queue
+    steps:
+      - type: exec
+        script: |
+          aws --endpoint-url={{.localstack_endpoint_ur}} sqs delete-queue --queue-url {{.localstack_queue_url}}
+        assertions:
+          - result.systemout ShouldEqual ""
