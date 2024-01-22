@@ -1,0 +1,46 @@
+
+name: Testing using the ZF API
+vars:
+  staff-user-file-path: /Users/fbustos/Projects/venom-projects/venom-api-poc/variables/staff_user.json
+  base-url: https://api-qa.zerofox.com/1.0
+  alert-id: 56431775
+  
+testcases:
+
+- name: POST Valid Credentials to ZF API to get API token
+  steps:
+  
+  - type: http
+    url: "{{.zfapi-url}}auth/token/"
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: >
+      {
+        "username": "QATESTER_STAFF",
+        "password": "Password12!@#"
+      }
+    vars:
+      access-token:
+        from: result.bodyjson.access
+    output:
+      display:
+        access-token: "{{.access-token}}"
+  
+  - name: Generate access token via command line
+    steps:
+      - type: exec
+        script: |
+          curl --location 'https://api-qa.zerofox.com/auth/token/' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "username":"QATESTER_STAFF",
+              "password":"Password12!@#"
+          }' > tokens.json
+          cat tokens.json | cut -d ':' -f3 | tr -d '\"'  | tr -d '\}'
+        vars:
+          access-token-cli:
+            from: 
+              result.systemout
+        assertions:
+          result.systemout ShouldContainSubstring ey
